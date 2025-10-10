@@ -50,10 +50,15 @@ public class MasterMind
 		String controle1_2 = "*";
 		String controle1_3 = "*";
 		String controle1_4 = "*";
+		
+		boolean codeVak1IsGoed = false ;
+		boolean codeVak2IsGoed = false ;
+		boolean codeVak3IsGoed = false ;
 	    // poging1_1 contole check
 		if (poging1_1 == codeVak1)
 		{
 		    controle1_1 = goedenKleurEnPlekPrint;
+		    codeVak1IsGoed = true;
 		} else
 		{
 		    if (poging1_1 == codeVak2)
@@ -74,12 +79,13 @@ public class MasterMind
 		    }
 		}
 		// poging1_2 contole check
-		if (poging1_2 == codeVak2)
+		if (poging1_2 == codeVak2 )
 		{
 		    controle1_2 = goedenKleurEnPlekPrint;
+		    codeVak2IsGoed = true;
 		} else
 		{
-		    if (poging1_2 == codeVak1)
+		    if (poging1_2 == codeVak1 && codeVak1IsGoed == false)
 		    {
 			controle1_2 = goedenKleurfoutenPlekPrint;
 		    } else
@@ -100,14 +106,15 @@ public class MasterMind
 		if (poging1_3 == codeVak3)
 		{
 		    controle1_3 = goedenKleurEnPlekPrint;
+		    codeVak3IsGoed = true;
 		} else
 		{
-		    if (poging1_3 == codeVak2)
+		    if (poging1_3 == codeVak1 && codeVak1IsGoed == false)
 		    {
 			controle1_3 = goedenKleurfoutenPlekPrint;
 		    } else
 		    {
-			if (poging1_3 == codeVak1)
+			if (poging1_3 == codeVak2 && codeVak2IsGoed == false)
 			{
 			    controle1_3 = goedenKleurfoutenPlekPrint;
 			} else
@@ -125,17 +132,17 @@ public class MasterMind
 		    controle1_4 = goedenKleurEnPlekPrint;
 		} else
 		{
-		    if (poging1_4 == codeVak2)
+		    if (poging1_4 == codeVak1 && codeVak1IsGoed == false)
 		    {
 			controle1_4 = goedenKleurfoutenPlekPrint;
 		    } else
 		    {
-			if (poging1_4 == codeVak3)
+			if (poging1_4 == codeVak2 && codeVak2IsGoed == false)
 			{
 			    controle1_4 = goedenKleurfoutenPlekPrint;
 			} else
 			{
-			    if (poging1_4 == codeVak1)
+			    if (poging1_4 == codeVak3 && codeVak3IsGoed == false)
 			    {
 				controle1_4 = goedenKleurfoutenPlekPrint;
 			    }
