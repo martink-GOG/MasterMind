@@ -51,7 +51,8 @@ public class MasterMind
 		String controle1_3 = "*";
 		String controle1_4 = "*";
 	    // poging1_1 contole check
-		if (poging1_1 == codeVak1)
+		boolean eersteControle = poging1_1 == codeVak1;
+		if (eersteControle)
 		{
 		    controle1_1 = goedenKleurEnPlekPrint;
 		} else
@@ -74,7 +75,8 @@ public class MasterMind
 		    }
 		}
 		// poging1_2 contole check
-		if (poging1_2 == codeVak2)
+		boolean tweedenControle = poging1_2 == codeVak2;
+		if (tweedenControle)
 		{
 		    controle1_2 = goedenKleurEnPlekPrint;
 		} else
@@ -97,7 +99,8 @@ public class MasterMind
 		    }
 		}
 		// poging1_3 contole check
-		if (poging1_3 == codeVak3)
+		boolean derdenControle =poging1_3 == codeVak3;
+		if (derdenControle)
 		{
 		    controle1_3 = goedenKleurEnPlekPrint;
 		} else
@@ -120,7 +123,8 @@ public class MasterMind
 		    }
 		}
 		// poging1_4 contole check
-		if (poging1_4 == codeVak4)
+		boolean vierdenControle =poging1_4 == codeVak4;
+		if (vierdenControle)
 		{
 		    controle1_4 = goedenKleurEnPlekPrint;
 		} else
@@ -146,9 +150,10 @@ public class MasterMind
 		System.out.println("eerste poging   =" + poging1_1 + poging1_2 + poging1_3 + poging1_4);
 		System.out.println("controle poging =" + controle1_1 + controle1_2 + controle1_3 + controle1_4);
 		//winst controle
-		String controle1 = controle1_1 + controle1_2 + controle1_3 + controle1_4;
-		String win = "xxxx";
-		if (controle1.equals(win))
+//		String controle1 = controle1_1 + controle1_2 + controle1_3 + controle1_4;
+//		String win = "xxxx";
+//		controle1.equals(win)
+		if (eersteControle && tweedenControle && derdenControle && vierdenControle)
 		{
 		    System.out.println("je hebt alles goed je wint");
 		    levens = 0;
