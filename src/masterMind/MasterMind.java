@@ -9,13 +9,7 @@ public class MasterMind
     {
 	// TODO Auto-generated method stub
 	Scanner sc = new Scanner(System.in);
-//code kraker
-//	int kleur1 = 1;
-//	int kleur2 = 2;
-//	int kleur3 = 3;
-//	int kleur4 = 4;
-//	int kleur5 = 5;
-//	int kleur6 = 6;
+	
 //code maker
 	String goedenKleurfoutenPlekPrint = "0";
 	String goedenKleurEnPlekPrint = "x";
@@ -57,22 +51,10 @@ public class MasterMind
 		    controle1_1 = goedenKleurEnPlekPrint;
 		} else
 		{
-		    if (poging1_1 == codeVak2)
+		    if (poging1_1 == codeVak2 || poging1_1 == codeVak3 || poging1_1 == codeVak4)
 		    {
 			controle1_1 = goedenKleurfoutenPlekPrint;
-		    } else
-		    {
-			if (poging1_1 == codeVak3)
-			{
-			    controle1_1 = goedenKleurfoutenPlekPrint;
-			} else
-			{
-			    if (poging1_1 == codeVak4)
-			    {
-				controle1_1 = goedenKleurfoutenPlekPrint;
-			    }
-			}
-		    }
+		    } 
 		}
 		// poging1_2 contole check
 		boolean tweedenControle = poging1_2 == codeVak2;
@@ -81,21 +63,9 @@ public class MasterMind
 		    controle1_2 = goedenKleurEnPlekPrint;
 		} else
 		{
-		    if (poging1_2 == codeVak1)
+		    if (poging1_2 == codeVak1 || poging1_2 == codeVak3 || poging1_2 == codeVak4)
 		    {
 			controle1_2 = goedenKleurfoutenPlekPrint;
-		    } else
-		    {
-			if (poging1_2 == codeVak3)
-			{
-			    controle1_2 = goedenKleurfoutenPlekPrint;
-			} else
-			{
-			    if (poging1_2 == codeVak4)
-			    {
-				controle1_2 = goedenKleurfoutenPlekPrint;
-			    }
-			}
 		    }
 		}
 		// poging1_3 contole check
@@ -150,9 +120,6 @@ public class MasterMind
 		System.out.println("eerste poging   =" + poging1_1 + poging1_2 + poging1_3 + poging1_4);
 		System.out.println("controle poging =" + controle1_1 + controle1_2 + controle1_3 + controle1_4);
 		//winst controle
-//		String controle1 = controle1_1 + controle1_2 + controle1_3 + controle1_4;
-//		String win = "xxxx";
-//		controle1.equals(win)
 		if (eersteControle && tweedenControle && derdenControle && vierdenControle)
 		{
 		    System.out.println("je hebt alles goed je wint");
