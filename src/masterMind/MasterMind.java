@@ -16,14 +16,12 @@ public class MasterMind
 	String goedenKleurEnPlekPrint = "x";
 
 //code vak
-	
-
 	int[] codeVak = new int[4];
 	codeVak[0] = num.nextInt(6)+1;
 	codeVak[1] = num.nextInt(6)+1;
 	codeVak[2] = num.nextInt(6)+1;
 	codeVak[3] = num.nextInt(6)+1;
-	System.out.println("eerste poging   =" + codeVak[0] + codeVak[1] + codeVak[2] + codeVak[3]);
+	//System.out.println("code =" + codeVak[0] + codeVak[1] + codeVak[2] + codeVak[3]);
 	int levens = 10;
 	do {//start loop
 	    // 1st poging
