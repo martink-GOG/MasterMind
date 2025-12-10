@@ -19,7 +19,7 @@ int codenGrooten = 4;
 	int[] codeVak = new int[codenGrooten];
 	for (int idx = 0; idx < codeVak.length; idx = idx +1) {
 	codeVak[idx] = num.nextInt(6) + 1;}
-	 System.out.println("code =" + codeVak[0] + codeVak[1] + codeVak[2] + codeVak[3]);
+//	 System.out.println("code =" + codeVak[0] + codeVak[1] + codeVak[2] + codeVak[3]);
 	//test random code generator
 	int levens = 10;
 	do
@@ -53,54 +53,7 @@ int codenGrooten = 4;
 		    }
 		}
 	    }
-//	    System.out.println("waarden " + mainControle[0] + mainControle[1] + mainControle[2]+ mainControle[3] );
-//	    boolean eersteControle = poging[0] == codeVak[0];
-//	    if (eersteControle)
-//	    {
-//		controle[0] = goedenKleurEnPlekPrint;
-//	    } else
-//	    {
-//		if (poging[0] == codeVak[1] || poging[0] == codeVak[2] || poging[0] == codeVak[3])
-//		{
-//		    controle[0] = goedenKleurfoutenPlekPrint;
-//		}
-//	    }
-//	    // 2de contole check
-//	    boolean tweedenControle = poging[1] == codeVak[1];
-//	    if (tweedenControle)
-//	    {
-//		controle[1] = goedenKleurEnPlekPrint;
-//	    } else
-//	    {
-//		if (poging[1] == codeVak[0] || poging[1] == codeVak[2] || poging[1] == codeVak[3])
-//		{
-//		    controle[1] = goedenKleurfoutenPlekPrint;
-//		}
-//	    }
-//	    // 3de contole check
-//	    boolean derdenControle = poging[2] == codeVak[2];
-//	    if (derdenControle)
-//	    {
-//		controle[2] = goedenKleurEnPlekPrint;
-//	    } else
-//	    {
-//		if (poging[2] == codeVak[0] || poging[2] == codeVak[1] || poging[2] == codeVak[3])
-//		{
-//		    controle[2] = goedenKleurfoutenPlekPrint;
-//		}
-//	    }
-//	    // 4de contole check
-//	    boolean vierdenControle = poging[3] == codeVak[3];
-//	    if (vierdenControle)
-//	    {
-//		controle[3] = goedenKleurEnPlekPrint;
-//	    } else
-//	    {
-//		if (poging[3] == codeVak[0] || poging[3] == codeVak[1] || poging[3] == codeVak[2])
-//		{
-//		    controle[3] = goedenKleurfoutenPlekPrint;
-//		}
-//	    }
+
 	    // poging feedback
 	    System.out.println("poging          =" + poging[0] + poging[1] + poging[2] + poging[3]);
 	    System.out.println("controle poging =" + controle[0] + controle[1] + controle[2] + controle[3]);
@@ -108,7 +61,7 @@ int codenGrooten = 4;
 	    if (mainControle[0] && mainControle[1] && mainControle[2] && mainControle[3])
 	    {
 		System.out.println("je hebt alles goed je wint");
-		levens = 0;
+		levens = -1;
 	    } else
 	    {
 		System.out.println("je hebt niet alles goed");
@@ -117,6 +70,9 @@ int codenGrooten = 4;
 	    }
 
 	} while (levens > 0);// eind loop
+	if(levens == 0) {
+	    System.out.println("je hebt geen levens meer je hebt verloren");
+	}
 	sc.close();
 
     }
