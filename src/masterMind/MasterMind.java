@@ -14,19 +14,18 @@ public class MasterMind
 //code maker
 	String goedenKleurfoutenPlekPrint = "0";
 	String goedenKleurEnPlekPrint = "x";
-
+int codenGrooten = 4;
 //code vak
-	int[] codeVak = new int[4];
+	int[] codeVak = new int[codenGrooten];
 	for (int idx = 0; idx < codeVak.length; idx = idx +1) {
-	codeVak[idx] = num.nextInt(6) + 1;
-    }
+	codeVak[idx] = num.nextInt(6) + 1;}
 	 System.out.println("code =" + codeVak[0] + codeVak[1] + codeVak[2] + codeVak[3]);
 	//test random code generator
 	int levens = 10;
 	do
 	{// start loop
 	 // pogingen
-	    int[] poging = new int[4];
+	    int[] poging = new int[codenGrooten];
 	    for (int idx = 0; idx < poging.length; idx = idx +1) {
 	    System.out.println("code kraker kiest een cijfer uit 1 t/m 6");
 	    poging[idx] = sc.nextInt();}
@@ -36,62 +35,77 @@ public class MasterMind
 	    System.out.println("0 is verkeerde plek ");
 	    System.out.println("* zit er niet in");
 	    // controle aan maak
-	    String[] controle = new String[4];
+	    String[] controle = new String[codenGrooten];
 	    for (int idx = 0; idx < controle.length; idx = idx +1) {
 	    controle[idx] = "*";}
+	    boolean[] mainControle = new boolean[codenGrooten];
+	    for (int idx = 0; idx < controle.length; idx = idx +1) {
+	    mainControle[idx] = false;}
 	    // 1st contole checks
-	    boolean eersteControle = poging[0] == codeVak[0];
-	    if (eersteControle)
-	    {
-		controle[0] = goedenKleurEnPlekPrint;
-	    } else
-	    {
-		if (poging[0] == codeVak[1] || poging[0] == codeVak[2] || poging[0] == codeVak[3])
-		{
-		    controle[0] = goedenKleurfoutenPlekPrint;
+	    for (int idx = 0 ; idx < poging.length; idx = idx + 1 ) {
+		if(poging[idx] == codeVak[idx]) {
+		    controle[idx] = goedenKleurEnPlekPrint;
+		    mainControle[idx] = true;}
+		    
+		else for (int y= 0 ;y < codeVak.length; y= y+1) {
+		    if (poging[idx] != codeVak[idx] && poging[idx] == codeVak[y]) {
+			controle[idx] = goedenKleurfoutenPlekPrint;
+		    }
 		}
 	    }
-	    // 2de contole check
-	    boolean tweedenControle = poging[1] == codeVak[1];
-	    if (tweedenControle)
-	    {
-		controle[1] = goedenKleurEnPlekPrint;
-	    } else
-	    {
-		if (poging[1] == codeVak[0] || poging[1] == codeVak[2] || poging[1] == codeVak[3])
-		{
-		    controle[1] = goedenKleurfoutenPlekPrint;
-		}
-	    }
-	    // 3de contole check
-	    boolean derdenControle = poging[2] == codeVak[2];
-	    if (derdenControle)
-	    {
-		controle[2] = goedenKleurEnPlekPrint;
-	    } else
-	    {
-		if (poging[2] == codeVak[0] || poging[2] == codeVak[1] || poging[2] == codeVak[3])
-		{
-		    controle[2] = goedenKleurfoutenPlekPrint;
-		}
-	    }
-	    // 4de contole check
-	    boolean vierdenControle = poging[3] == codeVak[3];
-	    if (vierdenControle)
-	    {
-		controle[3] = goedenKleurEnPlekPrint;
-	    } else
-	    {
-		if (poging[3] == codeVak[0] || poging[3] == codeVak[1] || poging[3] == codeVak[3])
-		{
-		    controle[3] = goedenKleurfoutenPlekPrint;
-		}
-	    }
+//	    System.out.println("waarden " + mainControle[0] + mainControle[1] + mainControle[2]+ mainControle[3] );
+//	    boolean eersteControle = poging[0] == codeVak[0];
+//	    if (eersteControle)
+//	    {
+//		controle[0] = goedenKleurEnPlekPrint;
+//	    } else
+//	    {
+//		if (poging[0] == codeVak[1] || poging[0] == codeVak[2] || poging[0] == codeVak[3])
+//		{
+//		    controle[0] = goedenKleurfoutenPlekPrint;
+//		}
+//	    }
+//	    // 2de contole check
+//	    boolean tweedenControle = poging[1] == codeVak[1];
+//	    if (tweedenControle)
+//	    {
+//		controle[1] = goedenKleurEnPlekPrint;
+//	    } else
+//	    {
+//		if (poging[1] == codeVak[0] || poging[1] == codeVak[2] || poging[1] == codeVak[3])
+//		{
+//		    controle[1] = goedenKleurfoutenPlekPrint;
+//		}
+//	    }
+//	    // 3de contole check
+//	    boolean derdenControle = poging[2] == codeVak[2];
+//	    if (derdenControle)
+//	    {
+//		controle[2] = goedenKleurEnPlekPrint;
+//	    } else
+//	    {
+//		if (poging[2] == codeVak[0] || poging[2] == codeVak[1] || poging[2] == codeVak[3])
+//		{
+//		    controle[2] = goedenKleurfoutenPlekPrint;
+//		}
+//	    }
+//	    // 4de contole check
+//	    boolean vierdenControle = poging[3] == codeVak[3];
+//	    if (vierdenControle)
+//	    {
+//		controle[3] = goedenKleurEnPlekPrint;
+//	    } else
+//	    {
+//		if (poging[3] == codeVak[0] || poging[3] == codeVak[1] || poging[3] == codeVak[2])
+//		{
+//		    controle[3] = goedenKleurfoutenPlekPrint;
+//		}
+//	    }
 	    // poging feedback
 	    System.out.println("poging          =" + poging[0] + poging[1] + poging[2] + poging[3]);
 	    System.out.println("controle poging =" + controle[0] + controle[1] + controle[2] + controle[3]);
 	    // winst controle
-	    if (eersteControle && tweedenControle && derdenControle && vierdenControle)
+	    if (mainControle[0] && mainControle[1] && mainControle[2] && mainControle[3])
 	    {
 		System.out.println("je hebt alles goed je wint");
 		levens = 0;
