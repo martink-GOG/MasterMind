@@ -10,7 +10,7 @@ public class Helper extends MasterMind
     private String goedenKleurEnPlekPrint = "x";
     public int codenGrooten = 4;
     Random num = new Random();
-    private int[] codeVak = new int [codenGrooten];
+    private int[] codeVak = new int[codenGrooten];
     public int levens = 10;
     Scanner sc = new Scanner(System.in);
     private int[] poging = new int[codenGrooten];
@@ -26,68 +26,91 @@ public class Helper extends MasterMind
 	}
 	return codeVak;
     }
-    public int [] pogingSpeler() {
-	
-	    for (int idx = 0; idx < poging.length; idx = idx + 1)
+
+    public int[] pogingSpeler()
+    {
+
+	for (int idx = 0; idx < poging.length; idx = idx + 1)
+	{
+	    try
 	    {
 		System.out.println("code kraker kiest een cijfer uit 1 t/m 6");
 		poging[idx] = sc.nextInt();
+		
+		if (poging[idx] == 1 || poging[idx] == 2 || poging[idx] == 3 || poging[idx] == 4 || poging[idx] == 5
+			|| poging[idx] == 6)
+		{
+		} else
+		{
+		    System.out.println("niet geldig antwoord probeer opnieuw");
+		    sc.nextLine();
+		    idx = idx - 1;
+		}
+	    } catch (Exception e)
+	    {
+		System.out.println("niet geldig antwoord probeer opnieuw");
+		sc.nextLine();
+		idx = idx - 1;
 	    }
-	    return poging;
+
+	}
+	return poging;
     }
-    public String[] controlenCheck() {
-	 
-	    for (int idx = 0; idx < controle.length; idx = idx + 1)
+
+    public String[] controlenCheck()
+    {
+
+	for (int idx = 0; idx < controle.length; idx = idx + 1)
+	{
+	    controle[idx] = "*";
+	}
+
+	for (int idx = 0; idx < controle.length; idx = idx + 1)
+	{
+	    mainControle[idx] = false;
+	}
+	// 1st contole checks
+	for (int idx = 0; idx < poging.length; idx = idx + 1)
+	{
+	    if (poging[idx] == codeVak[idx])
 	    {
-		controle[idx] = "*";
+		controle[idx] = goedenKleurEnPlekPrint;
+		mainControle[idx] = true;
 	    }
 
-	    
-	    for (int idx = 0; idx < controle.length; idx = idx + 1)
-	    {
-		mainControle[idx] = false;
-	    }
-	    // 1st contole checks
-	    for (int idx = 0; idx < poging.length; idx = idx + 1)
-	    {
-		if (poging[idx] == codeVak[idx])
+	    else
+		for (int y = 0; y < codeVak.length; y = y + 1)
 		{
-		    controle[idx] = goedenKleurEnPlekPrint;
-		    mainControle[idx] = true;
-		}
-
-		else
-		    for (int y = 0; y < codeVak.length; y = y + 1)
+		    if (poging[idx] != codeVak[idx] && poging[idx] == codeVak[y])
 		    {
-			if (poging[idx] != codeVak[idx] && poging[idx] == codeVak[y])
-			{
-			    controle[idx] = goedenKleurfoutenPlekPrint;
-			}
+			controle[idx] = goedenKleurfoutenPlekPrint;
 		    }
-	    }
-	    return controle;
-    } 
- public int spelerwinst() {
-//     winst controle
-	    boolean spelerWinst = true;
-	    for (int idx = 0; idx < mainControle.length; idx = idx + 1)
-	    {
-		if (mainControle[idx] == false)
-		{
-		    spelerWinst = false;
-		    System.out.println("je hebt niet alles goed");
-		    levens = levens - 1;
-		    System.out.println("je hebt " + levens + " levens over");
-		    break;
 		}
+	}
+	return controle;
+    }
 
-	    }
-	    if (spelerWinst)
+    public int spelerwinst()
+    {
+//     winst controle
+	boolean spelerWinst = true;
+	for (int idx = 0; idx < mainControle.length; idx = idx + 1)
+	{
+	    if (mainControle[idx] == false)
 	    {
-		System.out.println("je hebt alles goed je wint");
-		levens = -1;
+		spelerWinst = false;
+		System.out.println("je hebt niet alles goed");
+		levens = levens - 1;
+		System.out.println("je hebt " + levens + " levens over");
+		break;
 	    }
-	    return levens;
- }
-}
 
+	}
+	if (spelerWinst)
+	{
+	    System.out.println("je hebt alles goed je wint");
+	    levens = -1;
+	}
+	return levens;
+    }
+}

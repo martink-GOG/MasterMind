@@ -17,7 +17,7 @@ public class MasterMind
 //	int codenGrooten = 4;
 	Helper helper = new Helper();
 	//helper.createCode();
-	int[] codeVak = helper.createCode();
+//	int[] codeVak = helper.createCode();
 ////code vak
 //	int[] codeVak = new int[codenGrooten];
 //	for (int idx = 0; idx < codeVak.length; idx = idx + 1)
@@ -26,9 +26,9 @@ public class MasterMind
 //	}
 
 //	 test random code generator
-	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
-            System.out.print(codeVak[idx] + "");};
-     System.out.println("");
+//	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
+//            System.out.print(codeVak[idx] + "");};
+//     System.out.println("");
 //
      int levens = helper.levens;
 	do
