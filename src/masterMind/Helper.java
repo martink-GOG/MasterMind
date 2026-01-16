@@ -54,27 +54,11 @@ public class Helper extends MasterMind
 		poging[idx] = sc.nextInt();
 		Helper helper = new Helper();
 		boolean zitInKleuren = helper.checkIfValueInCollection(poging[idx], kleuren);
-//		boolean zitNietInCode = true;
-//		for (int i = 0; i < kleuren.length; i = i + 1)
-//		{
-//		    if (poging[idx] == kleuren[i])
-//		    {zitNietInCode = false;
-//		    }
-//		}
 		 if(!zitInKleuren)
 		    {
 			System.out.println("niet geldig antwoord probeer opnieuw");
 			idx = idx - 1;// dit zorgt dat de loop 1 keer terug gaat
 		    }
-//		if (poging[idx] == 1 || poging[idx] == 2 || poging[idx] == 3 || poging[idx] == 4 || poging[idx] == 5
-//			|| poging[idx] == 6)	//dit checkt of nummer dat is in gevuld is een geldig nummer is
-//		{
-//		} else
-//		{
-//		    System.out.println("niet geldig antwoord probeer opnieuw");
-//		    sc.nextLine();
-//		    idx = idx - 1;// dit zorgt dat de loop 1 keer terug gaat 
-////		}
 	    } catch (Exception e)
 	    {
 		System.out.println("niet geldig antwoord probeer opnieuw");
@@ -94,11 +78,6 @@ public class Helper extends MasterMind
 	    controle[idx] = "*";
 	    mainControle[idx] = false;
 	}
-
-//	for (int idx = 0; idx < controle.length; idx = idx + 1)
-//	{
-//	    mainControle[idx] = false;
-//	}
 	// 1st contole checks
 	for (int idx = 0; idx < poging.length; idx = idx + 1)
 	{Helper helper = new Helper();
