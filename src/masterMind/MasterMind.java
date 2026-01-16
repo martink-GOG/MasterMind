@@ -15,10 +15,10 @@ public class MasterMind
 	int[] codeVak = helper.createCode();
 
 //	 test random code generator
-//	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
-//            System.out.print(codeVak[idx] + "");};
-//     System.out.println("");
-//
+	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
+            System.out.print(codeVak[idx] + "");};
+     System.out.println("");
+
      int levens = helper.levens;
 	do
 	{// start loop
@@ -40,7 +40,7 @@ public class MasterMind
 		System.out.print(controle[idx]);
 	    }
 	    System.out.println("");
-//	    
+//	    1
 	     levens = helper.spelerwinst();
 	} while (levens > 0);// eind loop
 	if (levens == 0)
