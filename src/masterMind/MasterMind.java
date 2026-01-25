@@ -14,11 +14,11 @@ public class MasterMind
 	Helper helper = new Helper();
 	int[] codeVak = helper.createCode();
 
-//	 test random code generator
-	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
-            System.out.print(codeVak[idx] + "");};
-     System.out.println("");
-
+////	 test random code generator
+//	for (int idx = 0; idx < codeVak.length; idx= idx +1) {
+//            System.out.print(codeVak[idx] + "");};
+//     System.out.println("");
+//
      int levens = helper.levens;
 	do
 	{// start loop

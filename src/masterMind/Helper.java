@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Helper extends MasterMind
-{   
+{
     private String goedenKleurfoutenPlekPrint = "0";
     private String goedenKleurEnPlekPrint = "x";
     public int codenGrooten = 4;
@@ -28,8 +28,8 @@ public class Helper extends MasterMind
 	}
 	return codeVak;
     }
-    
-    public boolean checkIfValueInCollection(int x, int[] collection)
+
+    public boolean checkIfValueIsInCollection(int x, int[] collection)
     {
 	for (int value : collection)
 	{
@@ -40,7 +40,7 @@ public class Helper extends MasterMind
 	}
 
 	// TODO Auto-generated method stub
-	return false ;
+	return false;
     }
 
     public int[] pogingSpeler()
@@ -53,12 +53,14 @@ public class Helper extends MasterMind
 		System.out.println("code kraker kiest een cijfer uit 1 t/m 6");
 		poging[idx] = sc.nextInt();
 		Helper helper = new Helper();
-		boolean zitInKleuren = helper.checkIfValueInCollection(poging[idx], kleuren);
-		 if(!zitInKleuren)
-		    {
-			System.out.println("niet geldig antwoord probeer opnieuw");
-			idx = idx - 1;// dit zorgt dat de loop 1 keer terug gaat
-		    }
+		boolean zitInKleuren = helper.checkIfValueIsInCollection(poging[idx], kleuren);
+
+		if (!zitInKleuren)
+		{
+		    System.out.println("niet geldig antwoord probeer opnieuw");
+		    idx = idx - 1;// dit zorgt dat de loop 1 keer terug gaat
+		}
+
 	    } catch (Exception e)
 	    {
 		System.out.println("niet geldig antwoord probeer opnieuw");
@@ -78,17 +80,17 @@ public class Helper extends MasterMind
 	    controle[idx] = "*";
 	    mainControle[idx] = false;
 	}
+
 	// 1st contole checks
 	for (int idx = 0; idx < poging.length; idx = idx + 1)
-	{Helper helper = new Helper();
-	boolean zitInCode = helper.checkIfValueInCollection(poging[idx], codeVak);
+	{
+	    Helper helper = new Helper();
+	    boolean zitInCode = helper.checkIfValueIsInCollection(poging[idx], codeVak);
 	    if (poging[idx] == codeVak[idx])
 	    {
 		controle[idx] = goedenKleurEnPlekPrint;
 		mainControle[idx] = true;
-	    }
-
-	    else
+	    } else
 		for (int y = 0; y < codeVak.length; y = y + 1)
 		{
 		    if (poging[idx] != codeVak[idx] && zitInCode)
@@ -104,6 +106,7 @@ public class Helper extends MasterMind
     {
 //     winst controle
 	boolean spelerWinst = true;
+	
 	for (int idx = 0; idx < mainControle.length; idx = idx + 1)
 	{
 	    if (mainControle[idx] == false)
